@@ -18,6 +18,7 @@ export type SessionDetail = {
   report: JSON;
   selectedDoctor: doctorAgent;
   createdOn: string;
+  
 };
 
 type messages = {
