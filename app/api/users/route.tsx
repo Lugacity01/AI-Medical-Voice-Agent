@@ -32,9 +32,6 @@ export async function POST(req: NextRequest) {
         
         return NextResponse.json(e);
     }
-  return (
-    <div>route</div>
-  )
 }
 
 
