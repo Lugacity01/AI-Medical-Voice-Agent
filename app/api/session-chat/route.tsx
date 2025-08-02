@@ -53,3 +53,36 @@ export async function GET(req:NextRequest) {
   }
 
 }
+
+
+export async function DELETE(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const sessionId = searchParams.get("sessionId");
+  const user = await currentUser();
+
+  if (!sessionId) {
+    return NextResponse.json({ message: "Session ID is required" }, { status: 400 });
+  }
+
+  try {
+    // @ts-ignore
+    const email = user?.primaryEmailAddress?.emailAddress;
+
+    const deletedRows = await db
+      .delete(SessionChatTable)
+      .where(
+        // Optional: Restrict deletion to only the sessions created by the current user
+        eq(SessionChatTable.sessionId, sessionId));
+
+    return NextResponse.json({
+      success: true,
+      message: `Session chat with sessionId '${sessionId}' deleted`,
+      data: deletedRows,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, message: "Failed to delete session", error },
+      { status: 500 }
+    );
+  }
+}

@@ -36,8 +36,8 @@ export const AIDoctorAgents = [
     image: "/doctor4.png",
     agentPrompt:
       "You are a caring Psychologist AI. Ask how the user is feeling emotionally and give short, supportive tips.",
-    voiceId: "en-US-Standard-C",
-    subscriptionRequired: false,
+    voiceId: "susan",
+    subscriptionRequired: true,
   },
   {
     id: 5,

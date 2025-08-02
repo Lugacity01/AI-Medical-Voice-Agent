@@ -26,14 +26,14 @@ type props = {
 
 function DoctorAgentCard({ doctorAgent }: props) {
     const [loading, setLoading] = useState(false);
-      const router = useRouter()
+    const router = useRouter()
     const {has} = useAuth();
 
   // @ts-ignore
   const paidUser = has && has({plan: 'pro'})
   console.log("Paid user", paidUser)
 
-    const onStartConsultation = async () => {
+    const onStartConsultations = async () => {
         setLoading(true)
     
         // Save All info to database
@@ -71,7 +71,7 @@ function DoctorAgentCard({ doctorAgent }: props) {
       <h2 className="font-bold mt-1">{doctorAgent.specialist}</h2>
       <p className="line-clamp-2  text-sm text-gray-500">{doctorAgent.description}</p>
       <Button className="w-full p-3 mt-2"
-      onClick={onStartConsultation} disabled={!paidUser&&doctorAgent.subscriptionRequired}>
+      onClick={onStartConsultations} disabled={!paidUser&&doctorAgent.subscriptionRequired}>
         Start Consultation{loading ? <Loader2Icon className="animate-spin"/> : <IconArrowRight/> }
         </Button>
     </div>
