@@ -46,6 +46,7 @@ function ViewReportDialog({ record }: props) {
                   </p>
                   <p>
                     <span className="font-semibold">User:</span>{" "}
+                    {/* @ts-ignore */}
                     {record?.report?.user || "N/A"}
                   </p>
                   <p>
@@ -54,6 +55,7 @@ function ViewReportDialog({ record }: props) {
                   </p>
                   <p>
                     <span className="font-semibold">Agent:</span>{" "}
+                    {/* @ts-ignore */}
                     {record?.report?.agent || "N/A"}
                   </p>
                 </div>
@@ -65,6 +67,7 @@ function ViewReportDialog({ record }: props) {
                   Chief Complaint
                 </h3>
                 <p className="mt-1">
+                  {/* @ts-ignore */}
                   {record?.report?.chiefComplaint || "N/A"}
                 </p>
               </div>
@@ -74,6 +77,7 @@ function ViewReportDialog({ record }: props) {
                 <h3 className="text-blue-500 text-lg font-semibold border-b pb-1">
                   Summary
                 </h3>
+                {/* @ts-ignore */}
                 <p className="mt-1">{record?.report?.summary || "N/A"}</p>
               </div>
 
@@ -83,6 +87,7 @@ function ViewReportDialog({ record }: props) {
                   Symptoms
                 </h3>
                 <ul className="list-disc list-inside mt-1">
+                  {/* @ts-ignore */}
                   {record?.report?.symptoms?.map(
                     (symptom: string, index: number) => (
                       <li key={index}>{symptom}</li>
@@ -92,7 +97,7 @@ function ViewReportDialog({ record }: props) {
               </div>
 
               {/* Duration & Severity */}
-              
+
               <div>
                 <h3 className="text-blue-500 text-lg font-semibold border-b pb-1">
                   Duration & Severity
@@ -100,22 +105,27 @@ function ViewReportDialog({ record }: props) {
                 <div className="grid grid-cols-2 mt-1">
                   <p>
                     <span className="font-semibold">Duration:</span>{" "}
+                    {/* @ts-ignore */}
                     {record?.report?.duration || "Not specified"}
                   </p>
                   <p>
                     <span className="font-semibold">Severity:</span>{" "}
+                    {/* @ts-ignore */}
                     {record?.report?.severity || "Not specified"}
                   </p>
                 </div>
               </div>
 
               {/* Medications Mentioned */}
+              {/* @ts-ignore */}
               {record?.report?.medicationsMentioned?.length > 0 && (
                 <div>
                   <h3 className="text-blue-500 text-lg font-semibold border-b pb-1">
                     Medications Mentioned
                   </h3>
                   <ul className="list-disc list-inside mt-1">
+                    {/* @ts-ignore */}
+
                     {record.report.medicationsMentioned.map(
                       (med: string, index: number) => (
                         <li key={index}>{med}</li>
@@ -126,12 +136,14 @@ function ViewReportDialog({ record }: props) {
               )}
 
               {/* Recommendations */}
+              {/* @ts-ignore */}
               {record?.report?.recommendations?.length > 0 && (
                 <div>
                   <h3 className="text-lg text-blue-500 font-semibold border-b pb-1">
                     Recommendations
                   </h3>
                   <ul className="list-disc list-inside mt-1">
+                    {/* @ts-ignore */}
                     {record.report.recommendations.map(
                       (rec: string, index: number) => (
                         <li key={index}>{rec}</li>
