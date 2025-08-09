@@ -90,7 +90,7 @@ function ViewReportDialog({ record }: props) {
                   {/* @ts-ignore */}
                   {record?.report?.symptoms?.map(
                     (symptom: string, index: number) => (
-                      <li key={index}>{symptom}</li>
+                      <li key={index}>{symptom || "N/A"}</li>
                     )
                   )}
                 </ul>
